@@ -292,8 +292,20 @@ function makeCard (cardNumber, expirationDate, securityCode){
    Have bindCard merge the two parameters together into a new object which contains all the properties from the person as well as the creditcard. While Object.assign would give you the answer, specRunner requires an answer without using it.
 */
 
-function bindCard (newObject, creditCard){
-  for (var i in creditCard){
-    newObject[i] = creditCard[i];
-  } return newObject;
+// function bindCard (newObject, creditCard){
+//   for (var i in creditCard){
+//     newObject[i] = creditCard[i];
+//   } return newObject;
+// }
+
+
+function bindCard (newObject, creditCard) {
+  var combo = {};
+  for (var i in newObject){
+   combo[i] = newObject[i];
+ }
+ for (var i in creditCard){
+   combo[i] = creditCard[i];
+ }
+ return combo;
 }
